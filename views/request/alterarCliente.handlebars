@@ -1,0 +1,86 @@
+
+<div class="container1">
+    <!--inicio Header-->
+    <header class="header">
+        <h1 id="headerLabel">Alteração de clientes</h1>
+    </header>
+    <!--fim Header-->
+
+    <!--Inicio navegação-->
+    
+    <!--fim navegação-->
+
+    <main class="main" onclick="subMenuHide()" id="main">
+         <div class="container-form">
+
+    <form action="/editCliente" method="post" class="form">
+    <input type="hidden" value="{{cliente._id}}" name="id">
+
+        <div class="form-header">
+            <img src="../img/logo-form.png" alt="" class="form-img">
+            <h6>Avenida Getúlio Vargas N°41 loja 01</h6>
+            <h6>Arrial do cabo, RJ</h6>
+            <h6>Tel:(22) 9-9224-8228 </h6>
+        </div>
+
+
+
+        <div class="form-personal-information form-formatacao">
+            <p class="form-PI ">Data: <input type="date" name="date" id="DateAndHour" class="form-input" value="{{cliente.data}}"></p>
+            <p>Dados Pessoais</p>
+            <span class="form-PI">Cliente:</span>
+            <input type="text" name="nome" id="name" class="form-input" value="{{cliente.nome}}">
+            <span class="form-PI">Telefone:</span>
+            <input type="text" name="tel" id="telephone" class="form-input" value="{{cliente.telefone}}">
+        </div>
+
+        <div class="form-equipament form-formatacao">
+            <p>Equipamento</p>
+            <input type="text" name="equipamento" id="Notebook" value="{{cliente.equipamento}}" class="form-input"
+                required>
+            
+        </div>
+
+        <div class="form-equipment-feature form-formatacao">
+            <p>Marca:</p>
+            <input type="text" name="marca" id="marca" class="form-input"  value="{{cliente.marca}}">
+            <p>Processador: </p>
+            <input type="text" name="CPU" id="CPU" value="{{cliente.CPU}}" class="form-input">
+            <br>
+            <p>Memória: </p>
+            <input type="text" name="memoria" id="RAM" value="{{cliente.memoria}}"  class="form-input">
+            <p>QD </p>
+            <input type="text" name="quantidade" id="RAM" value="{{cliente.quantidade}}"  class="form-input">
+
+        </div>
+        <div class="observacao form-formatacao">
+            <p>Defeito relatado:</p>
+            <input type="text" name="defeito" value="{{cliente.defeito}}" class="form-input" required ></textarea>
+
+        </div>
+
+        <div class="form-equipment-feature form-formatacao">
+
+            <p><span>Serviço executado:</span> <input type="text" name="servico" id="servico" class="form-input" value="{{cliente.servico}}"
+                    required></p>
+        </div>
+
+        <div class="form-equipment-feature form-formatacao">
+
+            <p><span>Valor: </span><input type="text" name="valor" id="servico" class="form-input" value=""
+                    required></p>
+        </div>
+
+        <div class="form-formatacao form-div-btn">
+            <button class="form-btn" type="reset">cancelar</button>
+            <button class="form-btn" type="submit" onclick="print()">Encerrar</button>
+
+        </div>
+
+
+    </form>
+        </div>
+        
+    </main>
+    <footer class="footer">Desenvolvido por Rodrigo Ribeiro</footer>
+</div>

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
+
+.container-form {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    overflow-y: scroll;
+
+}
+
+.form {
+    width: 100%;
+    height: 100%;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+}
+
+.form-header {
+    height: 20%;
+    text-align: center;
+}
+
+.form-img {
+    height: 25%;
+    width: 100px;
+}
+
+.form-formatacao {
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.form-PI {
+    padding-bottom: 10px;
+}
+
+.form-input {
+    border: #929aab 1px solid;
+    outline-color: #5ea3a3;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#name {
+    width: 50%;
+}
+
+.form-input-radio {
+    margin-top: 5px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.form-equipament-span {
+    margin-right: 15px;
+}
+
+textarea {
+    resize: none;
+    outline-color: #5ea3a3;
+    border: #929aab 1px solid;
+}
+
+.form-div-btn {
+    display: flex;
+    justify-content: right;
+}
+
+.form-btn {
+    padding: 1.5%;
+    cursor: pointer;
+    background-color: rgba(146, 154, 171, 0.5);
+    border: none;
+    color: white;
+    
+    margin-right: 5px;
+    border-radius: 10px;
+
+}
+
+.form-btn::placeholder {
+    color: white;
+}
+
+.form-btn:hover {
+
+    background-color: #5ea3a3;
+    transition: 1000ms;
+
+}
+
+

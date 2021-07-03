@@ -1,0 +1,103 @@
+
+.nav {
+    grid-area: navbar;
+    display: grid;
+    grid-template-rows: 20% 1fr 10%;
+    grid-template-areas: 'logo-navbar''menu''footer-navbar';
+    background-color:#204969 ;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    box-shadow: 0px 0px 8px 0px #585858;
+    font-size: 15px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 83%;
+    z-index: 1; 
+}
+
+.logo-navbar {
+    grid-area: logo-navbar;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.img-logo-nav {
+    width: 80%;
+    filter: drop-shadow(2px 4px 8px #585858);
+}
+
+.menu {
+    grid-area: menu;
+    
+}
+
+.main-list {
+    height: 90%;
+    margin-top: 10%;
+    color: white;
+}
+
+.item-list {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+    font-size: 1em;
+    margin-top: 5%;
+}
+
+.img-navbar {
+    width: 8.5%;
+    margin-right: 7.5%;
+    margin-left: 7.5%;
+}
+
+.img-arrow {
+    width: 7.5%;
+    margin-left: 15%;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.img-arrow:hover    {
+    width: 8.5%;
+    border: 2px solid #dae1e7;
+    transition: 150ms;
+}
+
+/*estilo sub-list*/
+
+.sub-list {
+    position: absolute;
+    margin-left: 100%;
+    width: 90%;
+    display: none;
+    box-shadow: 2px 0px 5px 0px #585858;
+    z-index: 1;
+}
+
+.sub-item {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: #204969 ;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    z-index: 1;
+    
+}
+
+.sub-link {
+    text-decoration: none;
+    color: white;
+}
+
+.link-navbar        {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}

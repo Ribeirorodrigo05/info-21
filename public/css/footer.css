@@ -1,0 +1,13 @@
+
+.footer     {
+    display: flex;
+    align-items: center;
+    justify-self: right;
+    margin-right: 2%;
+    font-family: 'Open Sans', sans-serif;
+    color: silver;
+    position: fixed;
+    right: 0px;
+    top: 92.5%;
+
+}

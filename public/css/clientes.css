@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+
+.container-clientes{
+    width: 90%;
+    margin: auto;
+    background: rgba(223, 223, 223, 0.9);
+    font-size: 15px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+
+    .titulo-cliente{
+
+        font-family: 'Open Sans Condensed', sans-serif;
+    }
+.table-cliente  {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.table-rows {
+    background: #204969 ;
+}
+
+.titulo-table   {
+    color: white;
+}
+
+.body-table {
+    border-bottom: 1px solid #acacac;
+    padding-bottom: 3px;
+}
+
+
+.table-btn      {
+    border: none;
+    cursor: pointer;
+}
+.table-btn:hover    {
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.icon-btn{
+width: 23px;
+height: 23px;
+padding: 5px;
+background: rgba(223, 223, 223, 0.9);
+}

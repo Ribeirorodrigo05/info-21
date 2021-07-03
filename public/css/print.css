@@ -1,0 +1,36 @@
+@media print {
+    *{
+        border: none;
+    }
+    
+    .form {
+        font-weight: 300;
+    }
+
+    h1 {
+        font-weight: 300;
+    }
+
+    .header,
+    .navbar,
+    .footer,
+    .form-div-btn {
+        display: none;
+    }
+
+    .form-input {
+        border: none;
+    }
+
+    .form-header {
+        height: 10%;
+        text-align: left;
+
+    }
+
+    .form-formatacao {
+        width: 100%;
+
+
+    }
+}
