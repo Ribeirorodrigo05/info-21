@@ -45,7 +45,7 @@ router.get('/clientes',(req,res)=>{
 //editando cliente
 router.get('/edit/:id',(req,res)=>{
     Cliente.findOne({_id:req.params.id}).then((cliente)=>{
-        res.render('request/alterarcliente',{cliente : cliente})
+        res.render('request/alterarCliente',{cliente : cliente})
     }).catch((err)=>console.log(err))
 })
 
