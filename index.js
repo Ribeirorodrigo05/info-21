@@ -48,9 +48,13 @@ app.engine('handlebars', handlebars({
 app.set('view engine', 'handlebars');
 
 //conetando o mongo
-mongoose.connect(db.mongoURL , { useNewUrlParser:true, useUnifiedTopology: true } )
-        .then(()=>console.log('mongo is connect'))
-        .catch(err => console.log(err));
+mongoose.connect('mongodb+srv://ribeirorodrigo05:rodrigo220391@info2021.6psl5.mongodb.net/infoClientes?retryWrites=true&w=majority', {
+    useNewUrlParser: true
+}).then(() => {
+    console.log('conectado ao Mongo')
+}).catch((err) => {
+    console.log('erro ao conectar => ' + err)
+})
         
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
