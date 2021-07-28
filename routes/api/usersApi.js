@@ -10,7 +10,7 @@ const auth = require('../../config/auth');
 const csurf = require('csurf');
 const csrfProtection = csurf({cookie: {httpOnly: true}})
 
-/*router.get('/register',(req,res)=>{
+router.get('/register',(req,res)=>{
     User.findOne({email: req.body.email}).then(user=>{
      if(user){
             return res.status(400).json('O email já está cadastrado!');
@@ -32,7 +32,7 @@ const csrfProtection = csurf({cookie: {httpOnly: true}})
           })
      }
     })
-})*/
+})
 
 
 
