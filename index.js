@@ -48,7 +48,7 @@ app.engine('handlebars', handlebars({
 app.set('view engine', 'handlebars');
 
 //conetando o mongo
-mongoose.connect('mongodb+srv://ribeirorodrigo05:rodrigo220391@info2021.6psl5.mongodb.net/infoClientes?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://ribeirorodrigo05:rodrigo220391@info2021.6psl5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true
 }).then(() => {
     console.log('conectado ao Mongo')
