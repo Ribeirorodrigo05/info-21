@@ -1,51 +1,40 @@
 const express = require('express');
 const app = express();
-const handlebars = require('express-handlebars');
-const consign = require('consign');
+const routerUser = require('./routes/api/usersApi');
+const db = require('./config/keys');
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 3005;
-const routes = require('./routes/router');
+const bodyParser = require('body-parser');
+const handlebars = require('express-handlebars');
+const path = require('path');
+const passport = require('passport');
+require('./config/passport')(passport);
+const cookieParser = require('cookie-parser');
+const clients = require('./routes/api/clientApi');
 const session = require('express-session');
-const flash = require('connect-flash')
-const routerCliente = require('./routes/routerCliente')
-const path  =  require('path')
+const flash = require('connect-flash');
+
+const PORT = process.env.PORT || 5000;
 
 //configurando sessão
 app.use(session({
-    secret:'info-store',
+    secret:'ee4997abfd936eb8112d9dec6d62439f',
     resave:true,
     saveUninitialized:true
 }))
 app.use(flash())
-//middleware
+//middlewere para sessão
 app.use((req,res,next)=>{
-    res.locals.success_msg = req.flash('sucess_msg')
-    res.locals.error_msg = req.flash('error_msg')
+    res.locals.success_msg = req.flash("success_msg")
+    res.locals.error_msg = req.flash("errror_msg")
     next()
-    
 })
-
 
 //configuração arquivo estático
-app.use(express.static(path.join(__dirname , "/public")))
+app.use(express.static(path.join(__dirname , "./public")))
 
-
-//configuração mongoose
-mongoose.connect('mongodb+srv://ribeirorodrigo05:rodrigo220391@info2021.6psl5.mongodb.net/infoClientes?retryWrites=true&w=majority', {
-    useNewUrlParser: true
-}).then(() => {
-    console.log('conectado ao Mongo')
-}).catch((err) => {
-    console.log('erro ao conectar => ' + err)
-})
-
-
-//configuração para receber os dados do formulário
-app.use(express.urlencoded({
-    extended: true
-}))
-app.use(express.json())
-consign().include('controllers').into(app)
+//body-parser
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
 
 //configuração do template handlebars
 app.engine('handlebars', handlebars({
@@ -54,15 +43,19 @@ app.engine('handlebars', handlebars({
         allowProtoPropertiesByDefault: true,
         allowProtoMethodsByDefault: true,
     },
-}))
+}));
 
 app.set('view engine', 'handlebars');
 
+//conetando o mongo
+mongoose.connect(db.mongoURL , { useNewUrlParser:true, useUnifiedTopology: true } )
+        .then(()=>console.log('mongo is connect'))
+        .catch(err => console.log(err));
+        
+app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
+app.use( '/', routerUser );
+app.use('/',clients)
 
-//rotas
-app.use('/', routes)
-app.use('/',routerCliente)
 
-//servidor
-app.listen(PORT,()=>{console.log('ONLINE')})
-
+app.listen(PORT,()=>console.log('Online'));

@@ -1,0 +1,8 @@
+.dashboard {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 10% 1fr 8%;
+    grid-template-areas: 'nav header''nav main''nav footer';
+}
+

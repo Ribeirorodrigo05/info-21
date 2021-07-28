@@ -1,0 +1,83 @@
+
+<div class="dashboard">
+   {{>_nav}}
+   <header class="header">
+       <h3>Ordem de Serviço</h3>
+   </header>
+    <main class="main">
+        <form action="/editClient" method="POST" class="form-register-client">
+         <input type="hidden" value="{{client._id}}" name="id">
+            <div class="img-form">
+                <img src="../img/logo_main.png" alt="" class="logo-form">
+            </div>
+            <!-- informações pessoais -->
+            <div class="date-hour formation">
+                
+                <div class="date">
+                    <p>Data: </p>
+                    <input type="date" name="date" id="date" class="input-date-hour" value="{{client.date}}">
+                </div>
+                    
+                <div class="time">
+                    <p>Hora: </p>
+                    <input type="time" name="hour" id="hour"  class="input-date-hour" value="{{client.hour}}">
+                </div>
+
+                
+            </div>
+
+            <div class="client-information formation">
+                
+                <div class="name-tel">
+                    <p class="label">Nome*</p>
+                    <input type="text" name="name" id="name" class="input-form" value="{{client.name}}" required>
+                    <p class="label">Telefone*</p>
+                    <input type="tel" name="tel" id="tel" class="input-form" value="{{client.name}}" required>
+                </div>
+
+                <div class="client">
+                    <p class="label">Endereço</p>
+                    <input type="text" name="address" id="addres" class="input-form"  value="{{client.address}}">
+                    <p class="label" >Documento</p>
+                    <input type="text" name="document" id="document" class="input-form"  value="{{client.document}}">
+                </div>
+            </div>
+
+            <div class="equipment formation">
+                <div class="equipment-infomartion">
+                <p>Equipamento</p>
+                <input type="text" name="equipment" value="{{client.equipment}}" class="input-form">
+                
+                </div>
+            </div>
+            
+            <div class="equipment formation">
+                <p>Marca</p>
+            <input type="text" name="brand" value="{{client.brand}}" class="input-form">
+
+            </div>
+            <div class="equipment formation">
+                <p>Defeito relatado</p>
+                <input type="text" name="defect" class="input-form  service"  value="{{client.defect}}">
+            </div>
+
+             <div class="equipment formation">
+                <p>Serviço</p>
+                <input type="text" name="service" class="input-form  service"  value="{{client.service}}">
+            </div>
+            <div class="equipment formation">
+                <p>Valor</p>
+                <input type="number" name="price" class="input-form  service" value="{{client.price}}">
+            </div>
+
+            <div class="btn-form">
+                <button type="reset" class="btn" id="btnReset">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn" id="btnConfirm" onclick="print()">
+                   Cadastrar
+                </button>
+            </div>
+        </form>
+    </main>
+</div>

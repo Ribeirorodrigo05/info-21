@@ -1,94 +1,157 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
-
-.container-form {
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.7);
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+/*estilo geral form*/
+.form-register-client     {
+    width: 70%;
+    height: 90%;
+    background: #1685a7b7;
+    margin-left: 5%;
+    margin-top: 2.5%;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1em;
+    color: #dbd8d3;
     overflow-y: scroll;
-
 }
-
-.form {
-    width: 100%;
-    height: 100%;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 600;
-}
-
-.form-header {
-    height: 20%;
+.img-form       {
+    margin-top: 10px;
+    height: 80px;
     text-align: center;
 }
 
-.form-img {
-    height: 25%;
-    width: 100px;
+.logo-form      {
+    height: 100%;
 }
 
-.form-formatacao {
-    width: 80%;
-    margin: auto;
-    margin-top: 10px;
-}
-
-.form-PI {
-    padding-bottom: 10px;
-}
-
-.form-input {
-    border: #929aab 1px solid;
-    outline-color: #5ea3a3;
-    text-transform: uppercase;
-    border-radius: 5px;
+.input-date-hour        {
     padding: 5px;
+    outline: none;
+    border:#c4c2bf 1px solid;
+    border-radius: 5px;
 }
 
-#name {
-    width: 50%;
+.client-information {
+    width: 70%;
 }
 
-.form-input-radio {
-    margin-top: 5px;
-    margin-right: 2px;
-    cursor: pointer;
-}
-
-.form-equipament-span {
-    margin-right: 15px;
-}
-
-textarea {
-    resize: none;
-    outline-color: #5ea3a3;
-    border: #929aab 1px solid;
-}
-
-.form-div-btn {
-    display: flex;
-    justify-content: right;
-}
-
-.form-btn {
-    padding: 1.5%;
-    cursor: pointer;
-    background-color: rgba(146, 154, 171, 0.5);
-    border: none;
-    color: white;
+.date-hour     {
     
-    margin-right: 5px;
-    border-radius: 10px;
-
+    padding-top: 1%;
+    display: flex;
+    gap: 2.5%;
 }
 
-.form-btn::placeholder {
-    color: white;
+.formation  {
+    margin-left: 5%;
+    padding-top: 10px;
 }
 
-.form-btn:hover {
-
-    background-color: #5ea3a3;
-    transition: 1000ms;
-
+.client-information {
+    display: flex;
+    gap: 2.5%;
+    
 }
 
+.name-tel      {
+    width: 80%;
+}
 
+.client     {
+    width: 80%;
+}
+
+.label{
+    padding-top: 3%;
+}
+
+.input-form       {
+    width: 80%;
+    padding: 5px;
+    outline: none;
+    border:#c4c2bf 1px solid;
+    border-radius: 5px;
+    text-transform: uppercase;
+    
+}
+
+.input-form:hover{
+    
+    border:#fcf80a 1px solid;
+}
+
+.label-equipment    {
+    padding-right: 15px;
+}
+
+.select {
+    color: #c4c2bf;
+    outline: none;
+    padding: 2px;
+    border-radius: 5px;
+    border:#c4c2bf 1px solid;
+}
+.select > option {
+    color: #000;
+    padding: 2px;
+}
+
+#textarea       {
+    resize: none;
+    border-radius: 5px;
+    outline: none;
+    border:#c4c2bf 1px solid;
+    padding: 2px;
+    text-transform: uppercase;
+}
+
+.service        {
+    width: 40% !important;
+}
+
+.btn-form       {
+    padding-top: 10px;
+    display: flex;
+    gap: 10px;
+    margin-left: 5%;
+}
+    .btn      {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 9px;
+    border: none;
+    color: #c4c2bf;
+    border-radius: 5px;
+}
+
+#btnReset:hover      {
+    color: #FFF;
+    background: #e41a1aea;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+#btnConfirm:hover{
+    color: #FFF;
+    background: rgba(58, 207, 39, 0.918);
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.form-register-client::-webkit-scrollbar {
+    width: 10px;               /* width of the entire scrollbar */
+  }
+  
+  .form-register-client::-webkit-scrollbar:hover{
+      width: 10px;
+      transition: 500ms;
+  } 
+
+ .form-register-client::-webkit-scrollbar-track {
+    background: #ffffff;        /* color of the tracking area */
+  }
+  
+ .form-register-client::-webkit-scrollbar-thumb {
+    background-color: #d4d4d4;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 1px solid #707070;  /* creates padding around scroll thumb */
+  }

@@ -1,0 +1,70 @@
+
+<div class="dashboard">
+   {{>_nav}}
+   <header class="header">
+       <h3>Alterar Ordem de serviço</h3>
+   </header>
+    <main class="main">
+      <div class="container-clientes" onload="mesmaPagina()">
+    <div class="table-container">
+        
+        <table class="table-client" id="table">
+            <tbody>               
+                <tr class="table-rows">                    
+                    <td class="title-table data">Data</td>
+                    <td class="title-table">Hora</td>
+                    <td class="title-table">Cliente</td>
+                    <td class="title-table">Telefone</td>
+                    <td class="title-table">Endereço</td>
+                    <td class="title-table">Documento</td>
+                    <td class="title-table">Equipamento</td>
+                    <td class="title-table">Marca</td>
+                    <td class="title-table">Defeito</td>
+                    <td class="title-table">Serviço</td>
+                    <td class="title-table">Valor</td>
+                    <td class="title-table">Alterações</td>
+                    <td class="title-table">Excluir</td>
+                </tr>
+            
+            {{#each client}}
+            
+                <tr class="table-row">
+                    
+                    <td class="body-table table-color-grey data" >{{date}}</td>
+
+                    <td class="body-table table-color-whitesmoke" >{{hour}}</td>
+
+                    <td class="body-table table-color-whitesmoke">{{name}}</td>
+
+                    <td class="body-table table-color-whitesmoke">{{tel}}</td>
+
+                    <td class="body-table table-color-whitesmoke">{{address}}</td>
+
+                    <td class="body-table table-color-whitesmoke">{{document}}</td>
+                    
+                    <td class="body-table table-color-whitesmoke">{{equipment}}</td>
+
+                    <td class="body-table table-color-whitesmoke">{{brand}}</td>
+
+                    <td class="body-table table-color-whitesmoke">{{defect}}</td>
+
+                    <td class="body-table table-color-whitesmoke">{{service}}</td>
+                    
+                    <td class="body-table table-color-whitesmoke">{{price}}</td>
+
+                    <td class="body-table table-color-whitesmoke"><a href="/edit/{{_id}}" class="table-link" ><button
+                                class="table-btn"> <img src="./img/icon-pen.png" class="icon-btn" alt=""></button></a></td>
+
+                    <td class="body-table table-color-whitesmoke"><a href="/deletar/{{_id}}" class="table-link" ><button
+                                class="table-btn"><img src="./img/icon-lixo.png" class="icon-btn" alt=""> </button></a></td>
+                </tr>
+                </tbody>
+ 
+            </div>
+
+            {{/each}}
+        </table>
+    </div>
+</div>
+    </main>
+</div>

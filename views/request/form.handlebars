@@ -1,91 +1,91 @@
-<div class="container1">
-    <!--inicio Header-->
-    <header class="header">
-        <h1 id="headerLabel">Cadastro de clientes</h1>
-    </header>
-    <!--fim Header-->
 
-    <!--Inicio navegação-->
-    
-    <!--fim navegação-->
+<div class="dashboard">
+   {{>_nav}}
+   <header class="header">
+       <h3>Ordem de Serviço</h3>
+   </header>
+    <main class="main">
+        <form action="/registerClient" method="POST" class="form-register-client">
+            <div class="img-form">
+                <img src="./img/logo_main.png" alt="" class="logo-form">
+            </div>
+            <!-- informações pessoais -->
+            <div class="date-hour formation">
+                
+                <div class="date">
+                    <p>Data: </p>
+                    <input type="date" name="date" id="date" class="input-date-hour" required>
+                </div>
+                    
+                <div class="time">
+                    <p>Hora: </p>
+                    <input type="time" name="hour" id="hour"  class="input-date-hour">
+                </div>
 
-    <main class="main" onclick="subMenuHide()" id="main">
-        
-        <div class="container-form" id="result">
+                
+            </div>
 
-    <form action="/cadcliente" method="post" class="form">
+            <div class="client-information formation">
+                
+                <div class="name-tel">
+                    <p class="label">Nome*</p>
+                    <input type="text" name="name" id="name"  class="input-form" pattern="[A-Za-z]{}" required title="Apenas letrass">
+                    <div id="errorName"></div>
+                    <p class="label">Telefone*</p>
+                    <input type="tel" name="tel" id="tel"  class="input-form" pattern="[0-9]{11}"required >
+                </div>
 
-        <div class="form-header">
-            <img src="../img/logo-form.png" alt="" class="form-img">
-            <h6>Avenida Getúlio Vargas N°41 loja 01</h6>
-            <h6>Arrial do cabo, RJ</h6>
-            <h6>Tel:(22) 9-9224-8228 </h6>
-        </div>
+                <div class="client">
+                    <p class="label">Endereço</p>
+                    <input type="text" name="address" id="addres" pattern="[A-Za-z]{}" class="input-form">
+                    <p class="label" >Documento</p>
+                    <input type="text" name="document" id="document" class="input-form" pattern="[0-9]{15}">
+                </div>
+            </div>
 
+            <div class="equipment formation">
+                <div class="equipment-infomartion">
+                <p>Equipamento</p>
+                <input type="radio" name="equipment" value="notebook"><span class="label-equipment">Notebook</span>
+                <input type="radio" name="equipment" value="desktop"><span class="label-equipment">Desktop</span>
+                </div>
+            </div>
+            
+            <div class="equipment formation">
+                <p>Marca</p>
+                <select name="brand" id="brand" class="select">
+                    <option value=""></option>
+                    <option value="dell">Dell</option>
+                    <option value="samsung">Samsung</option>
+                    <option value="positivo">Positivo</option>
+                    <option value="acer">Acer</option>
+                    <option value="lenovo">Lenovo</option>
+                    <option value="asus">Asus</option>
+                    <option value="multilaser">Multilaser</option>
+                    <option value="sony vaio">Sony Vaio</option>
+                    <option value="HP">HP</option>
+                    <option value="LG">LG</option>
+                    <option value="avell">Avell</option>
+                    <option value="megaware">MegaWare</option>
+                </select>
+            </div>
+            <div class="equipment formation">
+                <p>Defeito relatado</p>
+                <textarea name="defect" cols="40" rows="4" id='textarea'></textarea>
+            </div>
 
-
-        <div class="form-personal-information form-formatacao">
-            <p class="form-PI ">Data: <input type="date" name="date" id="DateAndHour" class="form-input" required></p>
-            <p>Dados Pessoais</p>
-            <span class="form-PI">Cliente:</span>
-            <input type="text" name="nome" id="nome" class="form-input"  oninput=""  required>
-            <span class="form-PI">Telefone:</span>
-            <input type="text" name="tel" id="telephone" class="form-input"  required>
-        </div>
-
-        <div class="form-equipament form-formatacao">
-            <p>Equipamento</p>
-            <input type="radio" name="equipamento" id="Notebook" value="notebook" class="form-input-radio"
-                required><span class="form-equipament-span">Notebook</span>
-            <input type="radio" name="equipamento" id="desktop" value="desktop" class="form-input-radio" required><span
-                class="form-equipament-span">Desktop</span>
-        </div>
-
-        <div class="form-equipment-feature form-formatacao">
-            <p>Característica</p>
-            <p><span>Marca:</span> <input type="text" name="marca" id="marca" class="form-input" required></p>
-            <span>Processador: </span>
-            <input type="radio" name="CPU" id="CPU" value="intel" class="form-input-radio" required><span
-                class="form-equipament-span">Intel</span>
-            <input type="radio" name="CPU" id="CPU" value="AMD" class="form-input-radio" required><span>AMD</span>
-
-            <br>
-            <span>Memória: </span>
-            <input type="radio" name="memoria" id="RAM" value="2GB" class="form-input-radio"><span
-                class="form-equipament-span">2GB</span>
-            <input type="radio" name="memoria" id="RAM" value="4GB" class="form-input-radio"><span
-                class="form-equipament-span">4GB</span>
-            <input type="radio" name="memoria" id="RAM" value="8GB" class="form-input-radio"><span
-                class="form-equipament-span">8GB</span>
-            <input type="radio" name="memoria" id="RAM" value="16GB" class="form-input-radio"><span
-                class="form-equipament-span">16GB</span>
-            <select name="quantidade" id="quantidade">
-                <option value="">quantidade</option>
-                <option value="1">1x</option>
-                <option value="2">2x</option>
-                <option value="4">4x</option>
-            </select>
-
-        </div>
-        <div class="observacao form-formatacao">
-            <p>Defeito relatado:</p>
-            <textarea name="defeito" id="" cols="30" rows="3" required></textarea>
-
-        </div>
-
-        <div class="form-equipment-feature form-formatacao">
-
-            <p><span>Serviço executado:</span> <input type="text" name="servico" id="servico" class="form-input"
-                    required></p>
-        </div>
-
-        <div class="form-formatacao form-div-btn">
-            <button class="form-btn" type="reset">cancelar</button>
-            <button class="form-btn" type="submit" onclick="print()">cadastrar</button>
-
-        </div>
-    </form>
-        </div>
+             <div class="equipment formation">
+                <p>Serviço</p>
+                <input type="text" name="service" class="input-form  service">
+            </div>
+            <div class="btn-form">
+                <button type="reset" class="btn" id="btnReset">
+                    Cancelar
+                </button>
+                <button type="submit" class="btn" id="btnConfirm" onclick="">
+                   Cadastrar
+                </button>
+            </div>
+        </form>
     </main>
-    <footer class="footer">Desenvolvido por Rodrigo Ribeiro</footer>
 </div>
