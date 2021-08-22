@@ -4,5 +4,88 @@
     grid-template-columns: 200px 1fr;
     grid-template-rows: 10% 1fr 8%;
     grid-template-areas: 'nav header''nav main''nav footer';
+    
 }
+
+.container-dashboard        {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 40% 40% 30%;
+    grid-template-columns: 100%;
+    grid-template-areas: 'card card card''chart chart chart' 'empty empty empty';
+    overflow-y: auto;
+    
+
+}
+
+
+
+.container-card {
+    grid-area: card;
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.card  {
+    width: 220px;
+    height: 150px;
+    margin: 2%;
+    background-color: #E4EFE7;
+    border-radius: 10px;
+    box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
+        font-family: 'Work Sans', sans-serif;
+}
+
+.title      {
+    display: flex;
+    padding: 8px;
+    background-color: #548CA8;
+    align-items: center;
+    color: #ffffff;
+    
+}
+
+.img-dashboard      {
+    display: flex;
+    align-items: center;
+    height: 70%;
+    
+}
+
+.icon       {
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+}
+
+.service-info      {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    font-size: 2rem;
+    color: #495464;
+    
+}
+
+
+.chart      {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#curve_chart      {
+    width: 30vw;
+    height: 25vw;
+    margin-left: 2%;
+    background-color: #DDDDDD ;
+
+}
+
 

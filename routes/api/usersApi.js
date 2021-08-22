@@ -2,15 +2,23 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../../model/UserModel');
+const Client = require('../../model/ClientModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const passport = require('passport');
 const keys = require('../../config/keys');
 const auth = require('../../config/auth');
 const csurf = require('csurf');
 const csrfProtection = csurf({cookie: {httpOnly: true}})
 
-/*router.get('/register',(req,res)=>{
+//rota de login
+//rota publica
+router.get('/',(req,res)=>{
+    res.render('request/login')
+})
+//rota de registro 
+//rota publica login
+//nao visível
+router.get('/register',(req,res)=>{
     User.findOne({email: req.body.email}).then(user=>{
      if(user){
             return res.status(400).json('O email já está cadastrado!');
@@ -32,13 +40,10 @@ const csrfProtection = csurf({cookie: {httpOnly: true}})
           })
      }
     })
-})*/
-
-
-
-router.get('/',(req,res)=>{
-    res.render('request/login')
 })
+
+
+
 
 //rota de login
 //rota publica
@@ -46,8 +51,12 @@ router.post('/login',(req,res)=>{
     const email = req.body.email;
     const password = req.body.password;   
     User.findOne({email}).then((user)=>{
+        const errors =[];
         if(!user){
-            res.status(400).json('The email is invalid')
+            errors.push({invalidEmailOrPassword:'Email/Password invalid!'})   
+        }
+        if(errors.length > 0){
+            res.render('request/login', {errors: errors})
         }
         bcrypt.compare(password, user.password).then(isMatch => {
             if(isMatch){
@@ -59,24 +68,24 @@ router.post('/login',(req,res)=>{
                     res.cookie("cookieToken", jwt.sign( payload, keys.secretOrKey,{expiresIn:3600},), { httpOnly: true })
                     res.redirect("/dashboard")
             }else{
-                res.status(400).json({msg:'Login/Password is not correct!'})
+                req.flash('msg_error','Email/Password invalid')
+                res.render('request/login')
+
 
             }
-
-
-           
         })
     })
 })
 //rota privada (passport and jwt)
 router.get(
     '/dashboard', csrfProtection, auth , (req, res) => {
+        const service = Client.length;
+       console.log(service)
         res.render('request/dashboard', {csrf : req.csrfToken}) 
-    }
-  );
 
-router.get('/registerClient', csrfProtection, auth, (req,res)=>{
-    res.render('request/form', {csrf : req.csrfToken}) 
-})
+       })
 
-module.exports = router
+
+
+module.exports = router;
+

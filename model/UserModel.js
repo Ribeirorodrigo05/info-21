@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     name:{
         type:String,
+        uppercase:true,
         required:true
     },
     tel:{

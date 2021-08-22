@@ -1,0 +1,85 @@
+.container-inventory        {
+    width: 90%;
+    margin: 2.5%;
+    margin: auto;
+}
+
+h4      {
+    font-family: 'Work Sans', sans-serif;
+    margin-top: 1%;
+
+}
+
+.form-inventory     {
+    display: flex;
+    background: #EEEEEE;
+    padding: 10px;
+    font-family: 'Work Sans', sans-serif;
+    color: #171010;
+}
+
+.inventory-formation     {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1%;   
+}
+
+
+.input-inventory    {
+    border-radius: 4px;
+    padding: 5px;
+    outline: none;
+    border: none;
+}
+.code       {
+    width: 10%;
+}
+
+.product        {
+    width: 60%;
+
+}
+
+.unit{
+    width: 10%;
+}
+
+.price      {
+    width: 10%;
+}
+
+
+label   {
+    padding-bottom: 10px;
+}
+
+.btn-inventory       {
+    display: flex;
+    align-items: flex-end;
+    border: none !important;
+    background-color: #EEEEEE !important;
+    outline: none;
+    background-color:#25d615;
+    padding-left: 1%;
+}
+
+.btn-confirm-delete        {
+    border: none !important;
+    cursor: pointer;
+    
+}
+
+/*tabela de produtos*/
+
+.table-inventory        {
+    border-collapse: separate !important;
+    border: 1px solid  #cfcfcfe1;
+}
+
+.err-product    {
+    color: #bd0000;
+    width: 49.5%;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 0.8rem
+}

@@ -3,13 +3,13 @@
 .form-register-client     {
     width: 70%;
     height: 90%;
-    background: #1685a7b7;
-    margin-left: 5%;
+    background: #EEEEEE;
+    margin-left: 15%;
     margin-top: 2.5%;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     font-family: 'Roboto Slab', serif;
-    font-size: 1em;
-    color: #dbd8d3;
+    font-size: 0.8em;
+    color: #171010;
     overflow-y: scroll;
 }
 .img-form       {
@@ -21,7 +21,14 @@
 .logo-form      {
     height: 100%;
 }
+.link-os{
+        text-decoration: none;
+        color:#171010;
+        font-family: 'Roboto Slab', serif;
+        font-size: 0.8em;
+        cursor: pointer;
 
+}
 .input-date-hour        {
     padding: 5px;
     outline: none;
@@ -30,7 +37,10 @@
 }
 
 .client-information {
-    width: 70%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5%;
 }
 
 .date-hour     {
@@ -45,27 +55,23 @@
     padding-top: 10px;
 }
 
-.client-information {
-    display: flex;
-    gap: 2.5%;
-    
-}
+
 
 .name-tel      {
-    width: 80%;
+    width: 100%;
 }
 
 .client     {
-    width: 80%;
+    width: 100%;
 }
 
 .label{
-    padding-top: 3%;
+    padding-top: 0.8%;
 }
 
 .input-form       {
     width: 80%;
-    padding: 5px;
+    padding: 2.5px;
     outline: none;
     border:#c4c2bf 1px solid;
     border-radius: 5px;
@@ -75,7 +81,7 @@
 
 .input-form:hover{
     
-    border:#fcf80a 1px solid;
+    border: #c0c0c0 1px solid;
 }
 
 .label-equipment    {
@@ -111,7 +117,8 @@
     padding-top: 10px;
     display: flex;
     gap: 10px;
-    margin-left: 5%;
+    margin-left: 15%;
+    
 }
     .btn      {
     display: flex;
@@ -121,6 +128,7 @@
     border: none;
     color: #c4c2bf;
     border-radius: 5px;
+    background: #FFFFFF
 }
 
 #btnReset:hover      {

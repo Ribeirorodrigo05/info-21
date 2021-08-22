@@ -10,6 +10,13 @@ const csrfProtection = csurf({cookie: {httpOnly: true}})
 require('../../model/ClientModel')
 const Client = mongoose.model('clients')
 
+router.get('/registerClient', csrfProtection, auth, (req,res)=>{
+    res.render('request/form', {csrf : req.csrfToken}) 
+})
+
+//route /registerClient
+//route private
+//route create a client
 router.post('/registerClient', auth,(req,res)=>{
         const newClient = {
             date: req.body.date,
@@ -27,16 +34,32 @@ router.post('/registerClient', auth,(req,res)=>{
   new Client(newClient).save()
   .then(()=>{
       console.log('Save')
-      res.redirect('/consult')
+      res.redirect('/consultClient')
   }).catch((err)=>{
       console.log('Error : ' + err)
   })
 }
 )
 
-router.get('/consult', auth,(req,res)=>{
+
+router.get('/consult',auth,(req,res)=>{
+    res.redirect('/consultClient')
+})
+
+
+router.get('/consultClient', auth,(req,res)=>{
     Client.find().then((client)=>{
-        res.render('request/consultClient',{client : client})
+        res.render('request/find',{client : client})
+    })
+})
+
+
+router.post('/singleSearch',auth,(req,res)=>{
+    Client.find({name:req.body.name}).then((oneClient, client)=>{
+       if(oneClient){
+           Client.find().then((client,oneClient))
+           res.render('request/find',{oneClient : oneClient, client:client})
+       }
     })
 })
 
@@ -46,6 +69,8 @@ router.get('/edit/:id',(req,res)=>{
     }).catch((err)=>console.log(err))
 })
 
+
+/ 
 router.post('/editClient',(req,res)=>{
     Client.findOne({_id:req.body.id}).then((client)=>{
         client.date = req.body.date
@@ -61,7 +86,7 @@ router.post('/editClient',(req,res)=>{
         client.price = req.body.price
         client.save().then(()=>{
             console.log('Salvo com sucesso')
-            res.redirect('/consult')
+            res.redirect('/consultClient')
         }).catch()
     })
 })

@@ -6,8 +6,6 @@
     align-items: center;
     background: #eeedeb;
     box-shadow: 0px 4px 5px 0px rgba(107, 107, 107, 0.432);
-    transition: 5s;
-    transition-delay: 5s;
     z-index: 1;
 
 }
@@ -15,8 +13,10 @@
 h3      {
     
     color: #c4c2bf;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-family: 'Work Sans', sans-serif;
     margin-left: 5%;
+    font-weight: 200;
+
     
 }

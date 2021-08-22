@@ -11,7 +11,9 @@ const ClientSchema = new Schema({
     },
     name:{
         type:String,
+        uppercase:true,
         require:true
+
     },
     tel:{
         type:String,

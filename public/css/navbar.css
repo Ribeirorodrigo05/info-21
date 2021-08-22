@@ -12,9 +12,16 @@
     grid-template-rows: 18% 1fr;
     grid-template-columns: 1fr;
     grid-template-areas: 'img-logo' 'menu-nav';
-    z-index: 2;
+    z-index: 3;
+    position: fixed;
+    width: 200px;
 
 }
+
+.link-nav       {
+    color:#faf9b9
+}
+
 .img-logo       {
     margin-top: 10%;
     grid-area: img-logo;
@@ -56,6 +63,7 @@
     transition: 100ms;
     position: relative;
     margin-top: 5px;
+    z-index: 2;
     
     
 }
@@ -71,7 +79,7 @@
 }
 
 #arrow-service      {
-    margin-left: 45px;
+    margin-left: 15%;
 }
 
 .sub-list       {
