@@ -1,1 +1,2 @@
 [] create field for search just one client 
+[] create field for search work in open  
