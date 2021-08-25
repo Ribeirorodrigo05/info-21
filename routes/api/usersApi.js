@@ -90,6 +90,24 @@ router.get(
                 services.push({allServices : result})
             }
         })
+
+        Client.countDocuments({status:'open'},(err, result)=>{
+            if(err){
+                console.log(err)
+            }
+            else{
+                services.push({openServices : result})
+            }
+        })
+
+        Client.countDocuments({status:'close'},(err, result)=>{
+            if(err){
+                console.log(err)
+            }
+            else{
+                services.push({closeServices : result})
+            }
+        })
         .then(user => {
             if(services.length >= 0 ){
                 res.render('request/dashboard', {csrf : req.csrfToken, services : services})
