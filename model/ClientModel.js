@@ -5,7 +5,7 @@ const ClientSchema = new Schema({
         type:String,
         require:true
     },
-    hour:{
+    departureDate:{
         type:String,
         require:true
     },
@@ -46,6 +46,10 @@ const ClientSchema = new Schema({
     price:{
         type:Number,
         required:false
+    },
+    status:{
+        type:String,
+        default:'open'
     }
 
 })

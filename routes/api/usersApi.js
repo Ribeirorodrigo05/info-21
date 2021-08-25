@@ -79,13 +79,72 @@ router.post('/login',(req,res)=>{
 //rota privada (passport and jwt)
 router.get(
     '/dashboard', csrfProtection, auth , (req, res) => {
-        const service = Client.length;
-       console.log(service)
-        res.render('request/dashboard', {csrf : req.csrfToken}) 
 
-       })
+        const service = {};
+
+        service.NumberOfService = Client.countDocuments({},(err, result)=>{
+            if(err){
+                console.log(err);
+            }else{
+                service.theValue = result ;
+            }
+        })
+
+        service.openServices =  Client.countDocuments({status:'open'},(err, result)=>{
+            if(err){
+                console.log(err)
+            }else{
+                service.openServicesValue = result
+            }
+        })
+        
+        service.openServices = Client.countDocuments({status:'close'},(err, result)=>{
+            if(err){
+                console.log(err)
+            }else{
+                service.closeServicesValue = result
+            }
+
+        })
+        
+        res.render('request/dashboard', {csrf : req.csrfToken, service : service}) 
+
+    })
+        
 
 
 
 module.exports = router;
 
+//create a array for count the number of service 
+        /*const service = [];
+         service.push({numberOfService : Client.countDocuments({},(err, result)=>{
+            if(err){
+                console.log(err)
+            }else{
+                service.push({theValue:result}) 
+            }
+        })})
+
+        service.push({openServices: Client.countDocuments({status:'open'},(err, result)=>{
+            if(err){
+                console.log(err)
+            }else{
+                service.push({openServicesValue:result})
+            }
+        })})
+
+        service.push({openServices: Client.countDocuments({status:'close'},(err, result)=>{
+            if(err){
+                console.log(err)
+            }else{
+                service.push({closeServicesValue:result})
+            }
+        })})
+        
+        
+        if(service.length >= 0){
+        res.render('request/dashboard', {csrf : req.csrfToken, service : service}) 
+        }
+
+       })*/

@@ -15,12 +15,7 @@
                 
                 <div class="date">
                     <p>Data: </p>
-                    <input type="date" name="date" id="date" class="input-date-hour" value="{{client.date}}">
-                </div>
-                    
-                <div class="time">
-                    <p>Hora: </p>
-                    <input type="time" name="hour" id="hour"  class="input-date-hour" value="{{client.hour}}">
+                    <input type="date" name="departureDate" id="date" class="input-date-hour" required>
                 </div>
 
                 
@@ -64,10 +59,20 @@
                 <p>Serviço</p>
                 <input type="text" name="service" class="input-form  service"  value="{{client.service}}">
             </div>
+
             <div class="equipment formation">
                 <p>Valor</p>
                 <input type="number" name="price" class="input-form  service" step="any" value="{{client.price}}">
             </div>
+             
+             <div class="equipment formation">
+                <p>Status</p>
+                <select name="status"  class="select">
+                    <option value="open">Aberto</option>
+                    <option value="close">Fechado</option>
+                </select>
+            </div>
+
 
             <div class="btn-form">
                 <button type="reset" class="btn" id="btnReset">

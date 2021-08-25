@@ -1,2 +1,3 @@
-[] create field for search just one client 
-[] create field for search work in open  
+[x] create field for search just one client 
+[x] create field for search all works   
+[x]  create field for search all works open

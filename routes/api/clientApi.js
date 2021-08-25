@@ -73,7 +73,7 @@ router.get('/edit/:id',(req,res)=>{
 / 
 router.post('/editClient',(req,res)=>{
     Client.findOne({_id:req.body.id}).then((client)=>{
-        client.date = req.body.date
+        client.date = req.body.departureDate
         client.name = req.body.name
         client.hour = req.body.hour
         client.tel = req.body.tel
@@ -84,8 +84,8 @@ router.post('/editClient',(req,res)=>{
         client.defect = req.body.defect
         client.service = req.body.service
         client.price = req.body.price
+        client.status = req.body.status
         client.save().then(()=>{
-            console.log('Salvo com sucesso')
             res.redirect('/consultClient')
         }).catch()
     })
@@ -94,7 +94,6 @@ router.post('/editClient',(req,res)=>{
 //deletando cliente
 router.get('/deletar/:id',(req,res)=>{
     Client.deleteOne({_id:req.params.id}).then((client)=>{
-        console.log('Excluído com sucesso!')
         res.redirect('/consult')
     })
 })

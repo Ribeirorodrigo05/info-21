@@ -8,8 +8,8 @@
         <table class="table-client" id="table">
             <tbody>               
                 <tr class="table-rows">                    
-                    <td class="title-table data">Data</td>
-                    <td class="title-table">Hora</td>
+                    <td class="title-table data">Entrada</td>
+                    <td class="title-table data">Saída</td>
                     <td class="title-table" colspan="2">Cliente</td>
                     <td class="title-table">Telefone</td>
                     <td class="title-table">Documento</td>
@@ -18,6 +18,7 @@
                     <td class="title-table">Defeito</td>
                     <td class="title-table">Serviço</td>
                     <td class="title-table">Valor</td>
+                    <td class="title-table">Status</td>
                     <td class="title-table">Alterações</td>
                     <td class="title-table">Excluir</td>
                 </tr>
@@ -25,9 +26,11 @@
             
                 <tr class="table-row">
                     
-                    <td class="body-table table-color-grey data" >{{date}}</td>
+                   <td class="body-table table-color-grey data" >{{#formatDate date}}{{/formatDate}}</td>
+                    
+                    <td class="body-table table-color-grey data" >{{#formatDate departureDate}}{{/formatDate}}</td>
 
-                    <td class="body-table table-color-whitesmoke" >{{hour}}</td>
+
 
                     <td class="body-table table-color-whitesmoke" colspan="2">{{name}}</td>
 
@@ -45,6 +48,8 @@
                     <td class="body-table table-color-whitesmoke" >{{service}}</td>
                     
                     <td class="body-table table-color-whitesmoke">{{price}}</td>
+                    
+                    <td class="body-table table-color-whitesmoke">{{status}}</td>
 
                     <td class="body-table table-color-whitesmoke"><a href="/edit/{{_id}}" class="table-link" ><button
                                 class="table-btn"> <img src="./img/icon-pen.png" class="icon-btn" alt=""></button></a></td>
