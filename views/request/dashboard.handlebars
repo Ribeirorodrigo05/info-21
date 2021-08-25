@@ -31,11 +31,11 @@ c-4 -27 -10 -35 -25 -35 -15 0 -21 8 -23 33 -4 38 -15 41 -36 10z"/>
 </g>
 </svg>     
                 </div>
-                {{#if service}}
+                {{#each service}}
                 <div class="service-info">
-                       {{service.theValue}}
+                       {{theValue}}
                 </div>
-                {{/if}}
+                {{/each}}
               </div>
               
            </div>
@@ -87,11 +87,11 @@ c36 -33 42 -44 42 -80 0 -34 -3 -41 -19 -41 -11 0 -22 8 -25 18 -4 11 -18 29
 
 
                 </div>
-                {{#if service}}
+                {{#each service}}
                 <div class="service-info">
-                        {{service.openServicesValue}}
+                        {{openServicesValue}}
                 </div>
-                {{/if}}
+                {{/each}}
               </div>
            </div>
 
@@ -126,11 +126,11 @@ l0 -99 -35 -6 c-69 -13 -125 -85 -125 -161 l0 -35 -80 0 -80 0 0 200 0 200
 </g>
 </svg>
                 </div>
-                {{#if service}}
+                {{#each service}}
                 <div class="service-info">
-                        {{service.closeServicesValue}}
+                        {{closeServicesValue}}
                 </div>
-                {{/if}}
+                {{/each}}
               </div>
            </div>
 
