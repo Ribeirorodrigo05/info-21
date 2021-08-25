@@ -76,78 +76,32 @@ router.post('/login',(req,res)=>{
         })
     })
 })
-//rota privada (passport and jwt)
+//rota privada 
 router.get(
     '/dashboard', csrfProtection, auth , (req, res) => {
 
-       /* const service = {};
-        Client.find().then(user =>{ 
-        service.NumberOfService =  Client.countDocuments({},(err, result)=>{
-            if(err){
-                console.log(err);
-            }else{
-                service.theValue = result ;
-            }
-        })
+     const services = [];
 
-        service.openServices =  Client.countDocuments({status:'open'},(err, result)=>{
+        Client.countDocuments({},(err, result)=>{
             if(err){
                 console.log(err)
-            }else{
-                service.openServicesValue = result
+            }
+            else{
+                services.push({allServices : result})
             }
         })
+        .then(user => {
+            if(services.length >= 0 ){
+                res.render('request/dashboard', {csrf : req.csrfToken, services : services})
+            }
+        })
+      
         
-        service.openServices = Client.countDocuments({status:'close'},(err, result)=>{
-            if(err){
-                console.log(err)
-            }else{
-                service.closeServicesValue = result
-            }
 
-        })
-        
-        res.render('request/dashboard', {csrf : req.csrfToken, service : service}) */
 
-        const service = [];
-        Client.find().then(user => {
-        service.push({allService: Client.countDocuments({},(err, result)=>{
-            if(err){
-                console.log(err);
-            }else{
-                service.push({theValue : result })
-            }
-        })
+
+
     })
-//////////////////////
-        service.push({openServices:  Client.countDocuments({status:'open'},(err, result)=>{
-            if(err){
-                console.log(err)
-            }else{
-                service.push({openServicesValue : result})
-            }
-        })
-    
-    })
-       
-        service.push({closeServices: Client.countDocuments({status:'close'},(err, result)=>{
-            if(err){
-                console.log(err)
-            }else{
-                service.push({closeServicesValue : result })
-            }
-        })
-    
-    })
-
-    if(service.length > 0 ){
-        res.render('request/dashboard', {csrf : req.csrfToken, service : service})
-    }
-
-})
-
-})
-
   
 
 
@@ -196,3 +150,38 @@ module.exports = router;
         }
 
        })*/
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+       /* const service = {};
+        Client.find().then(user =>{ 
+        service.NumberOfService =  Client.countDocuments({},(err, result)=>{
+            if(err){
+                console.log(err);
+            }else{
+                service.theValue = result ;
+            }
+        })
+
+        service.openServices =  Client.countDocuments({status:'open'},(err, result)=>{
+            if(err){
+                console.log(err)
+            }else{
+                service.openServicesValue = result
+            }
+        })
+        
+        service.openServices = Client.countDocuments({status:'close'},(err, result)=>{
+            if(err){
+                console.log(err)
+            }else{
+                service.closeServicesValue = result
+            }
+
+        })
+        
+        res.render('request/dashboard', {csrf : req.csrfToken, service : service}) */
