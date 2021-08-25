@@ -81,8 +81,8 @@ router.get(
     '/dashboard', csrfProtection, auth , (req, res) => {
 
         const service = {};
-
-        service.NumberOfService = Client.countDocuments({},(err, result)=>{
+        Client.find().then(user =>{ 
+        service.NumberOfService =  Client.countDocuments({},(err, result)=>{
             if(err){
                 console.log(err);
             }else{
@@ -109,7 +109,9 @@ router.get(
         
         res.render('request/dashboard', {csrf : req.csrfToken, service : service}) 
 
-    })
+    }).catch(err => console.log(err)) })
+
+
         
 
 
