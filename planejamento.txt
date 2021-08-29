@@ -1,3 +1,7 @@
 [x] create field for search just one client 
 [x] create field for search all works   
 [x]  create field for search all works open
+
+
+configuration of db connect local x Online
+[x] Create thoose between local database and online database

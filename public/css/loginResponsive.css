@@ -1,4 +1,4 @@
-@media (max-width:720px) {
+@media (max-width:820px) {
     .login-container    {
         min-height: 100vh;
         grid-template-columns: 1fr;
@@ -20,7 +20,7 @@
 
     .login-button       {
         background: #42c405;
-    color: #ffffff;
-    border: 1px solid #ffffff;
+        color: #ffffff;
+        border: 1px solid #ffffff;
     }
 }

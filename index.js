@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const routerUser = require('./routes/api/usersApi');
-const db = require('./config/keys');
+const db = require('./config/db');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
@@ -12,7 +12,10 @@ const products = require('./routes/api/productApi');
 const session = require('express-session');
 const flash = require('connect-flash');
 const keys = require('./config/keys');
-const moment = require('moment')
+const moment = require('moment');
+const passport = require('passport');
+const {isAdmin} = require('./config/permission')
+
 
 const PORT = process.env.PORT || 5000;
 
@@ -22,11 +25,14 @@ app.use(session({
     resave:true,
     saveUninitialized:true
 }))
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(flash())
 //middlewere para sessão
 app.use((req,res,next)=>{
     res.locals.success_msg = req.flash("success_msg")
     res.locals.error_msg = req.flash("msg_error")
+    res.locals.user = req.user || null;
     next()
 })
 
@@ -54,7 +60,7 @@ app.engine('handlebars', handlebars({
 app.set('view engine', 'handlebars');
 
 //conetando o mongo
-mongoose.connect(keys.mongoURL, {
+mongoose.connect(db.mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology:true
 }).then(() => {

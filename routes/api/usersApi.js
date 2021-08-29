@@ -63,7 +63,8 @@ router.post('/login',(req,res)=>{
                 const payload = {
                     id: user.id,
                     name: user.name,
-                    email: user.email
+                    email: user.email,
+                    admin: user.admin
                     }
                     res.cookie("cookieToken", jwt.sign( payload, keys.secretOrKey,{expiresIn:3600},), { httpOnly: true })
                     res.redirect("/dashboard")
@@ -80,52 +81,37 @@ router.post('/login',(req,res)=>{
 router.get(
     '/dashboard', csrfProtection, auth , (req, res) => {
 
-     const services = [];
-
+    let services = {};
+  
         Client.countDocuments({},(err, result)=>{
             if(err){
                 console.log(err)
-            }
-            else{
-                services.push({allServices : result})
+            }else{
+                services.allServices = result;
             }
         })
 
         Client.countDocuments({status:'open'},(err, result)=>{
             if(err){
                 console.log(err)
-            }
-            else{
-                services.push({openServices : result})
+            }else{
+                services.openServices = result;
             }
         })
 
         Client.countDocuments({status:'close'},(err, result)=>{
             if(err){
                 console.log(err)
-            }
-            else{
-                services.push({closeServices : result})
+            }else{
+                services.closeServices = result;
             }
         })
         .then(user => {
-            if(services.length >= 0 ){
-                res.render('request/dashboard', {csrf : req.csrfToken, services : services})
-            }
+            res.render('request/dashboard', {csrf : req.csrfToken, services : services})
         })
-      
         
-
-
-
 
     })
-  
-
-
-        
-
-       
 
     
 
@@ -203,3 +189,49 @@ module.exports = router;
         })
         
         res.render('request/dashboard', {csrf : req.csrfToken, service : service}) */
+
+
+
+
+
+        //retornando dados para a dashboard
+     /*const services = [];
+
+        Client.countDocuments({},(err, result)=>{
+            if(err){
+                console.log(err)
+            }
+            else{
+                services.push({allServices : result})
+            }
+        })
+
+        Client.countDocuments({status:'open'},(err, result)=>{
+            if(err){
+                console.log(err)
+            }
+            else{
+                services.push({openServices : result})
+            }
+        })
+
+        Client.countDocuments({status:'close'},(err, result)=>{
+            if(err){
+                console.log(err)
+            }
+            else{
+                services.push({closeServices : result})
+            }
+        })
+        .then(user => {
+            if(services.length >= 0 ){
+                res.render('request/dashboard', {csrf : req.csrfToken, services : services})
+            }
+        })
+      
+        
+
+
+
+
+    })*/

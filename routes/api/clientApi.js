@@ -9,6 +9,7 @@ const csurf = require('csurf');
 const csrfProtection = csurf({cookie: {httpOnly: true}})
 require('../../model/ClientModel')
 const Client = mongoose.model('clients')
+const isAdmin = require('../../config/permission')
 
 router.get('/registerClient', csrfProtection, auth, (req,res)=>{
     res.render('request/form', {csrf : req.csrfToken}) 
@@ -57,8 +58,8 @@ router.get('/consultClient', auth,(req,res)=>{
 router.post('/singleSearch',auth,(req,res)=>{
     Client.find({name:req.body.name}).then((oneClient, client)=>{
        if(oneClient){
-           Client.find().then((client,oneClient))
-           res.render('request/find',{oneClient : oneClient, client:client})
+           
+           res.render('request/find',{oneClient : oneClient})
        }
     })
 })
@@ -92,7 +93,7 @@ router.post('/editClient',(req,res)=>{
 })
 
 //deletando cliente
-router.get('/deletar/:id',(req,res)=>{
+router.get('/deletar/:id', isAdmin ,(req,res)=>{
     Client.deleteOne({_id:req.params.id}).then((client)=>{
         res.redirect('/consult')
     })

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Float = require('mongoose-float').loadType(mongoose, 3)
 const Schema = mongoose.Schema;
 const ClientSchema = new Schema({
     date:{
@@ -44,7 +45,7 @@ const ClientSchema = new Schema({
         require:true
     },
     price:{
-        type:Number,
+        type:Float,
         required:false
     },
     status:{
