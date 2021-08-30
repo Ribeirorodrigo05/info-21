@@ -8,7 +8,6 @@ const handlebars = require('express-handlebars');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const clients = require('./routes/api/clientApi');
-const products = require('./routes/api/productApi');
 const session = require('express-session');
 const flash = require('connect-flash');
 const keys = require('./config/keys');
@@ -69,11 +68,10 @@ mongoose.connect(db.mongoURI, {
     console.log('erro ao conectar => ' + err)
 })
         
-app.use(express.urlencoded({ extended: false }))
-app.use(cookieParser())
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.use( '/', routerUser );
-app.use('/',clients)
-app.use('/',products)
+app.use('/',clients);
 
 app.get("/logout", (req, res) => {
     res.clearCookie("cookieToken")

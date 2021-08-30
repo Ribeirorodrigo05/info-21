@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const auth = require('../../config/auth');
 const csurf = require('csurf');
-const csrfProtection = csurf({cookie: {httpOnly: true}})
+const csrfProtection = csurf({cookie: {httpOnly: true}});
 
 //rota de login
 //rota publica
@@ -80,9 +80,8 @@ router.post('/login',(req,res)=>{
 //rota privada 
 router.get(
     '/dashboard', csrfProtection, auth , (req, res) => {
-
+   
     let services = {};
-  
         Client.countDocuments({},(err, result)=>{
             if(err){
                 console.log(err)
@@ -112,6 +111,8 @@ router.get(
         
 
     })
+
+
 
     
 

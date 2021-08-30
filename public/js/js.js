@@ -18,3 +18,27 @@ function validator(){
 
 
 }
+
+
+setInterval(()=>{
+    let date = new Date();
+    let hour = date.getHours();
+    let minute = date.getMinutes();
+    let second = date.getSeconds();
+
+    if(hour <10){
+        hour = '0' + hour
+    }
+
+    if(second <10){
+        second = '0' + second
+    }
+
+
+    document.getElementById('dateHour')
+    .textContent = `${hour}:${minute}:${second}`
+}, 1000)
+
+console.log(setInterval())
+
+    
