@@ -30,7 +30,7 @@
                     <input type="text" name="name" id="name"  class="input-form" pattern="[A-Za-z]{}" required title="Apenas letras">
                     <div id="errorName"></div>
                     <p class="label">Telefone*</p>
-                    <input type="tel" name="tel" id="tel"  class="input-form" pattern="[0-9]{11}"required title="Somente números">
+                    <input type="tel" name="tel" id="tel"  class="input-form" pattern="[0-9]{11}"required title="Somente números" inputmode='numeric'>
                 </div>
 
                 <div class="client">
@@ -84,5 +84,8 @@
                 </button>
             </div>
         </form>
+        {{>_home}}
     </main>
+    
+    {{>_footer}}
 </div>

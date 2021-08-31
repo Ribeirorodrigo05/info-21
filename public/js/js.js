@@ -39,6 +39,9 @@ setInterval(()=>{
     .textContent = `${hour}:${minute}:${second}`
 }, 1000)
 
-console.log(setInterval())
+function navActive() {
+    let navbar = document.getElementById('nav');
+    navbar.style.display = 'block'
+}
 
     
