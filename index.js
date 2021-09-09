@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const app = express();
 const routerUser = require('./routes/api/usersApi');
 const db = require('./config/db');
@@ -13,8 +13,8 @@ const flash = require('connect-flash');
 const keys = require('./config/keys');
 const moment = require('moment');
 const passport = require('passport');
-const {isAdmin} = require('./config/permission')
-
+const {isAdmin} = require('./config/permission');
+require('dotenv').config();
 
 const PORT = process.env.PORT || 5000;
 
@@ -59,7 +59,7 @@ app.engine('handlebars', handlebars({
 app.set('view engine', 'handlebars');
 
 //conetando o mongo
-mongoose.connect(db.mongoURI, {
+mongoose.connect(process.env.MONGODB_URL_KEY, {
     useNewUrlParser: true,
     useUnifiedTopology:true
 }).then(() => {

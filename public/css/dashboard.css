@@ -109,6 +109,9 @@
     .dash-mobile{
         display: none;
     }
+    .home   {
+        display:none;
+    }
 }
 
 

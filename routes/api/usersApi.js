@@ -1,23 +1,33 @@
+//dependencies
 const express = require('express');
-const router = express.Router();
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const csurf = require('csurf');
+
+//require modules
 const User = require('../../model/UserModel');
 const Client = require('../../model/ClientModel');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const auth = require('../../config/auth');
-const csurf = require('csurf');
+const search = require('../../search/searchApi')
+
+//new instance of express
+const router = express.Router();
+
+//new instance of csurf for cross-site protection
 const csrfProtection = csurf({cookie: {httpOnly: true}});
 
-//rota de login
-//rota publica
+//route of Login
+//route is public
 router.get('/',(req,res)=>{
     res.render('request/login')
 })
-//rota de registro 
-//rota publica login
-//nao visível
+
+//route of Register
+//route of public
+//this route is just for demonstration how create a user and transform the password in hash 
+//all user registrations in this application will be done directly in the database
 router.get('/register',(req,res)=>{
     User.findOne({email: req.body.email}).then(user=>{
      if(user){
@@ -80,8 +90,7 @@ router.post('/login',(req,res)=>{
 //rota privada 
 router.get(
     '/dashboard', csrfProtection, auth , (req, res) => {
-   
-    let services = {};
+        let services = {};
         Client.countDocuments({},(err, result)=>{
             if(err){
                 console.log(err)
@@ -109,130 +118,7 @@ router.get(
             res.render('request/dashboard', {csrf : req.csrfToken, services : services})
         })
         
-
     })
-
-
-
-    
-
-
-        
-
-
 
 module.exports = router;
 
-//create a array for count the number of service 
-        /*const service = [];
-         service.push({numberOfService : Client.countDocuments({},(err, result)=>{
-            if(err){
-                console.log(err)
-            }else{
-                service.push({theValue:result}) 
-            }
-        })})
-
-        service.push({openServices: Client.countDocuments({status:'open'},(err, result)=>{
-            if(err){
-                console.log(err)
-            }else{
-                service.push({openServicesValue:result})
-            }
-        })})
-
-        service.push({openServices: Client.countDocuments({status:'close'},(err, result)=>{
-            if(err){
-                console.log(err)
-            }else{
-                service.push({closeServicesValue:result})
-            }
-        })})
-        
-        
-        if(service.length >= 0){
-        res.render('request/dashboard', {csrf : req.csrfToken, service : service}) 
-        }
-
-       })*/
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-       /* const service = {};
-        Client.find().then(user =>{ 
-        service.NumberOfService =  Client.countDocuments({},(err, result)=>{
-            if(err){
-                console.log(err);
-            }else{
-                service.theValue = result ;
-            }
-        })
-
-        service.openServices =  Client.countDocuments({status:'open'},(err, result)=>{
-            if(err){
-                console.log(err)
-            }else{
-                service.openServicesValue = result
-            }
-        })
-        
-        service.openServices = Client.countDocuments({status:'close'},(err, result)=>{
-            if(err){
-                console.log(err)
-            }else{
-                service.closeServicesValue = result
-            }
-
-        })
-        
-        res.render('request/dashboard', {csrf : req.csrfToken, service : service}) */
-
-
-
-
-
-        //retornando dados para a dashboard
-     /*const services = [];
-
-        Client.countDocuments({},(err, result)=>{
-            if(err){
-                console.log(err)
-            }
-            else{
-                services.push({allServices : result})
-            }
-        })
-
-        Client.countDocuments({status:'open'},(err, result)=>{
-            if(err){
-                console.log(err)
-            }
-            else{
-                services.push({openServices : result})
-            }
-        })
-
-        Client.countDocuments({status:'close'},(err, result)=>{
-            if(err){
-                console.log(err)
-            }
-            else{
-                services.push({closeServices : result})
-            }
-        })
-        .then(user => {
-            if(services.length >= 0 ){
-                res.render('request/dashboard', {csrf : req.csrfToken, services : services})
-            }
-        })
-      
-        
-
-
-
-
-    })*/
