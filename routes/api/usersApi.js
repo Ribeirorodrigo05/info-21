@@ -28,7 +28,7 @@ router.get('/',(req,res)=>{
 //route of public
 //this route is just for demonstration how create a user and transform the password in hash 
 //all user registrations in this application will be done directly in the database
-router.get('/register',(req,res)=>{
+router.post('/register',(req,res)=>{
     User.findOne({email: req.body.email}).then(user=>{
      if(user){
             return res.status(400).json('O email já está cadastrado!');

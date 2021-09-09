@@ -6,3 +6,8 @@
 
 
 
+}else{
+     MONGODB_URL_KEY='mongodb://localhost/db_infoSolucoes'    
+}
+
+if(process.env.NODE_ENV){
