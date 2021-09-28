@@ -13,3 +13,7 @@
 if(process.env.NODE_ENV){
 
   MONGODB_URL_KEY = 'mongodb+srv://ribeirorodrigo05:rodrigo220391@info2021.6psl5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
+
+  .then(user => {
+            response.render('request/dashboard', {csrf : request.csrfToken, services : services})

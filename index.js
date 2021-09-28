@@ -16,7 +16,7 @@ const passport = require('passport');
 const {isAdmin} = require('./config/permission');
 require('dotenv').config();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5005;
 
 //configurando sessão
 app.use(session({

@@ -55,8 +55,8 @@ router.post('/register',(req,res)=>{
 
 
 
-//rota de login
-//rota publica
+//Login route
+//route public
 router.post('/login',(req,res)=>{
     const email = req.body.email;
     const password = req.body.password;   
@@ -87,9 +87,12 @@ router.post('/login',(req,res)=>{
         })
     })
 })
-//rota privada 
-router.get(
-    '/dashboard', csrfProtection, auth , (req, res) => {
+//dashboard route
+//private route
+router.get('/dashboard', csrfProtection, auth,(request, response) => {
+
+    //let { serviceDashboard } = request
+    
         let services = {};
         Client.countDocuments({},(err, result)=>{
             if(err){
@@ -115,9 +118,10 @@ router.get(
             }
         })
         .then(user => {
-            res.render('request/dashboard', {csrf : req.csrfToken, services : services})
+            response.render('request/dashboard', {csrf : request.csrfToken, services : services})
         })
-        
+
+       // response.render('request/dashboard', {csrf : request.csrfToken, services : services})
     })
 
 module.exports = router;
